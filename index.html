@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جامعة فلسطين التقنية – خضوري | PTU Kadoorie Campus Navigator</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/ptu-logo.png">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header class="top"><div class="bar"><a class="brand" href="#top"><img src="assets/ptu-logo.png" alt="PTU"><span><span class="ar">جامعة فلسطين التقنية – خضوري</span><span class="en">Palestine Technical University – Kadoorie</span></span></a>
+<nav><a href="#navigator"><span class="ar">الخريطة</span><span class="en">Map</span></a><a href="#places"><span class="ar">المباني</span><span class="en">Buildings</span></a><a href="#compare"><span class="ar">المقارنة</span><span class="en">Compare</span></a><a href="#agent"><span class="ar">الوكيل</span><span class="en">Agent</span></a></nav><button class="lang" id="lg">EN</button></div></header>
+<section class="hero" id="top"><div class="hw"><div>
+<h1><span class="ar">أهلاً بك في جامعة فلسطين التقنية – خضوري</span><span class="en">Welcome to Palestine Technical University – Kadoorie</span></h1>
+<p class="lead"><span class="ar">دليلك الذكي بين مباني الحرم الجامعي. اختر من أين وإلى أين، وشاهد الوكيل وهو يبحث عن الطريق خطوة بخطوة.</span><span class="en">Your smart guide around the campus. Choose where you are and where you’re going, then watch the agent search for the way, step by step.</span></p>
+<div class="cta"><a class="btn p" href="#navigator"><span class="ar">ابدأ التنقل</span><span class="en">Start navigating</span></a><a class="btn g" href="#agent"><span class="ar">كيف يعمل الوكيل؟</span><span class="en">How does the agent work?</span></a></div></div>
+<div class="arch" role="img" aria-label="PTU Kadoorie"></div></div>
+<svg class="trail" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C150 5 260 70 420 38 S700 8 820 40 S1060 66 1200 20"/></svg></section>
+
+<section class="sec" id="navigator"><div class="wrap"><h2><span class="ar">خطّط طريقك</span><span class="en">Plan your route</span></h2>
+<p class="sub"><span class="ar">اختر البداية والوجهة من القوائم، أو اضغط على المباني في الخريطة مباشرة.</span><span class="en">Pick a start and a destination from the lists, or tap the buildings on the map.</span></p>
+<div class="grid"><div>
+<div class="frame" id="frame"><svg id="map" viewBox="0 195 776 690" role="group" aria-label="Campus map"><image href="assets/campus-map.jpg" width="776" height="1030"/></svg><div class="tip" id="tip" hidden></div></div>
+<p class="hint" id="hint"></p>
+<div class="leg"><span><i style="background:#fff"></i><span class="ar">مبنى</span><span class="en">Building</span></span><span><i style="background:#1b5e3b"></i><span class="ar">البداية</span><span class="en">Start</span></span><span><i style="background:#1d2f7c;border-color:#1d2f7c"></i><span class="ar">الوجهة</span><span class="en">Goal</span></span><span><i style="background:#f0b429;border-color:#f0b429"></i><span class="ar">تم فحصه</span><span class="en">Expanded</span></span><span><i style="background:#fff;border-color:#2b7de9"></i><span class="ar">في الانتظار</span><span class="en">Frontier</span></span><span><i style="background:#c8372d;border-color:#c8372d"></i><span class="ar">الحالي</span><span class="en">Current</span></span></div>
+</div>
+<aside class="card">
+<div class="st"><b>1</b><label for="s"><span class="ar">من أين؟</span><span class="en">From</span></label><select id="s"></select></div>
+<button class="btn swap" id="sw" aria-label="swap">⇅</button>
+<div class="st"><b>2</b><label for="g"><span class="ar">إلى أين؟</span><span class="en">To</span></label><select id="gsel"></select></div>
+<div class="st"><b>3</b><label><span class="ar">الخوارزمية</span><span class="en">Algorithm</span></label><div><div class="seg" id="alg"><button data-a="bfs" aria-pressed="true">BFS</button><button data-a="dfs" aria-pressed="false">DFS</button><button data-a="ids" aria-pressed="false">IDS</button></div><p class="ad" id="ad"></p></div></div>
+<div class="acts"><button class="btn p" id="run"></button><button class="btn" id="stp"></button><button class="btn" id="rs"></button><input id="sp" type="range" min="1" max="10" value="5" aria-label="speed"></div>
+<p class="ad"><span class="ar">«الخطوة التالية» تفحص مكاناً واحداً في كل ضغطة لتشاهد البحث ببطء، و«شغّل البحث» يعرضه تلقائياً.</span><span class="en">“Next step” expands one place per tap so you can watch the search slowly; “Run search” plays it automatically.</span></p>
+<label class="ad"><input type="checkbox" id="ed"> <span class="ar">إظهار الطرق والمسافات</span><span class="en">Show roads and distances</span></label>
+<p class="live" id="live" role="status" aria-live="polite"></p>
+<p class="cap" id="i1"></p><div class="chips" id="fr"></div><p class="cap"><span class="ar">ترتيب الفحص</span><span class="en">Expansion order</span></p><div class="chips" id="ex"></div>
+<h3><span class="ar">رحلات جاهزة</span><span class="en">Ready-made trips</span></h3><div class="quick" id="quick"></div>
+<h3><span class="ar">النتيجة</span><span class="en">Result</span></h3>
+<div class="stats"><div><b id="m2">–</b><span><span class="ar">متر (تقديري)</span><span class="en">metres (est.)</span></span></div><div><b id="m4">–</b><span><span class="ar">دقائق مشياً</span><span class="en">min on foot</span></span></div><div><b id="m3">–</b><span><span class="ar">حالات فُحصت</span><span class="en">states expanded</span></span></div></div>
+<ol class="steps" id="res"></ol>
+</aside></div></div></section>
+
+<section class="sec" id="places"><div class="wrap"><h2><span class="ar">دليل المباني</span><span class="en">Campus directory</span></h2><p class="sub"><span class="ar">اضغط على أي مبنى لتعيينه كبداية ثم كوجهة.</span><span class="en">Tap a place to set it as your start, then as your goal.</span></p><div class="dir" id="dir"></div></div></section>
+
+<section class="sec" id="compare"><div class="wrap"><h2><span class="ar">الرحلة نفسها بثلاث خوارزميات</span><span class="en">One trip, three algorithms</span></h2>
+<p class="sub"><span class="ar">تتغير النتائج حسب الرحلة المختارة أعلاه.</span><span class="en">The results follow the trip you picked above.</span></p>
+<div class="card" style="overflow-x:auto"><table id="cmp"></table>
+<p class="note"><span class="ar">يطبّق الوكيل اختبار الهدف عند فحص العقدة. المسافات تقديرية مقروءة من الخريطة. عمود «الأقصر؟» يقارن بمرجع Dijkstra للتحقق فقط. BFS يقلّل عدد الخطوات لا الأمتار، لذلك قد لا يجد أقصر مسار عندما تختلف أطوال الطرق. IDS يعدّ الزيارات المتكررة بين التكرارات.</span><span class="en">The goal test is applied when a node is expanded. Distances are estimates read from the map. “Cheapest?” compares against a Dijkstra reference used only for checking. BFS minimises the number of moves, not metres, so it can miss the cheapest route when road lengths differ. IDS counts repeated visits across its iterations.</span></p></div></div></section>
+
+<section class="sec" id="agent"><div class="wrap"><h2><span class="ar">كيف عُرّف الوكيل</span><span class="en">How the agent is defined</span></h2><p class="sub"><span class="ar">وكيل قائم على الهدف في بيئة مرصودة بالكامل، حتمية، تسلسلية، ثابتة، منفصلة، وحيدة الوكلاء.</span><span class="en">A goal-based agent in a fully observable, deterministic, sequential, static, discrete, single-agent environment.</span></p>
+<div class="two"><div class="card"><dl>
+<dt><span class="ar">الحالة</span><span class="en">State</span></dt><dd><span class="ar">موقع الوكيل الحالي في الحرم</span><span class="en">the agent’s current place on campus</span></dd>
+<dt><span class="ar">البداية</span><span class="en">Initial</span></dt><dd><span class="ar">المبنى أو البوابة المختارة</span><span class="en">the chosen building or gate</span></dd>
+<dt><span class="ar">الأفعال</span><span class="en">Actions</span></dt><dd><span class="ar">الذهاب إلى أي مكان متصل بطريق</span><span class="en">go to any place joined by a road</span></dd>
+<dt><span class="ar">الانتقال</span><span class="en">Transition</span></dt><dd><span class="ar">يصبح الوكيل في المكان المجاور</span><span class="en">the agent ends up at that neighbour</span></dd>
+<dt><span class="ar">اختبار الهدف</span><span class="en">Goal test</span></dt><dd><span class="ar">الموقع الحالي = الوجهة</span><span class="en">current place = destination</span></dd>
+<dt><span class="ar">كلفة المسار</span><span class="en">Path cost</span></dt><dd><span class="ar">مجموع مسافات الطرق بالمتر</span><span class="en">sum of road distances in metres</span></dd></dl></div>
+<div class="card"><dl>
+<dt><span class="ar">الأداء</span><span class="en">Performance</span></dt><dd><span class="ar">مسار صحيح، أمتار أقل، حالات مفحوصة أقل</span><span class="en">a valid route, fewer metres, fewer states expanded</span></dd>
+<dt><span class="ar">البيئة</span><span class="en">Environment</span></dt><dd><span class="ar">شبكة طرق الحرم (<span id="nn"></span> مكاناً، <span id="ne"></span> طريقاً)</span><span class="en">the campus road network (<span id="nn2"></span> places, <span id="ne2"></span> roads)</span></dd>
+<dt><span class="ar">المحرّكات</span><span class="en">Actuators</span></dt><dd><span class="ar">الانتقال إلى مكان مجاور</span><span class="en">move to a neighbouring place</span></dd>
+<dt><span class="ar">المستشعرات</span><span class="en">Sensors</span></dt><dd><span class="ar">الموقع الحالي وقائمة الأماكن المتصلة</span><span class="en">current place and its connected places</span></dd></dl></div></div></div></section>
+<footer><div class="wrap"><img src="assets/ptu-logo.png" alt=""><div><span class="ar">جامعة فلسطين التقنية – خضوري · مشروع مساق الذكاء الاصطناعي · طريق المعرفة يبدأ من هنا</span><span class="en">Palestine Technical University – Kadoorie · AI course project · The road to knowledge starts here</span></div></div></footer>
+<script src="js/data.js"></script>
+<script src="js/algorithms.js"></script>
+<script src="js/app.js"></script>
+</body></html>
