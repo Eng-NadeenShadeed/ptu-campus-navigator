@@ -6,17 +6,16 @@
 |---|---|
 | 🌐 **Live website** | https://eng-nadeenshadeed.github.io/ptu-campus-navigator/ |
 | 💻 **Source code** | https://github.com/Eng-NadeenShadeed/ptu-campus-navigator |
-| 📄 **Project report (PDF)** | [`docs/Project_Report.pdf`](docs/Project_Report.pdf) |
+| 📄 **Project report (PDF)** | [`Project_Report.pdf`](Project_Report.pdf) |
 | 👩‍🎓 **Student** | Nadeen Monther Shadeed – ID 202312411 |
  
-![Home page of the website](assets/screenshot-home.jpg)
+
  
 ## What is this project?
  
 A smart guide for the university campus. The user chooses **where they are** and **where they want to go**, and an **intelligent agent** finds a route over the campus road network using **uninformed search algorithms**: **BFS**, **DFS** and **IDS** (built on DLS). The website lets you watch the search happen step by step on the official campus map, in **Arabic or English**.
  
-![Route planner](assets/screenshot-navigator.jpg)
- 
+
 ## Features
  
 - Interactive official campus map: click buildings to set the start and the goal, or use the lists.
