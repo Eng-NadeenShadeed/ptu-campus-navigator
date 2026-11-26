@@ -1,8 +1,9 @@
 """
 Intelligent Campus Navigation Agent
-Palestine Technical University - Khadoorie (PTU)
+Palestine Technical University - Kadoorie (PTU)
 -----------------------------------------------------------------------------
 AI Course - Individual Project
+Student: Nadeen Monther Shadeed        Student ID: 202312411
 
 The agent finds a route between places on the campus map using uninformed
 search. Implemented algorithms:
@@ -266,18 +267,21 @@ def ids(graph, start, goal, max_depth=None, verbose=False):
     """Iterative Deepening Search: run DLS with limit 0, 1, 2, ... until solved."""
     max_depth = max_depth if max_depth is not None else len(graph)
     all_expanded = []
+    iterations = []                            # (limit, states expanded in that iteration)
     for limit in range(max_depth + 1):
         res = dls(graph, start, goal, limit)
         all_expanded.extend(res["expanded"])
+        iterations.append((limit, res["expanded"]))
         if verbose:
             status = "SOLVED" if res["found"] else "cutoff"
             print(f"  limit {limit}: expanded {res['n_expanded']:4d} nodes -> {status}")
         if res["found"]:
             return make_result("IDS", True, res["path"], graph, all_expanded,
-                               {"final_limit": limit})
+                               {"final_limit": limit, "iterations": iterations})
         if not res.get("cutoff"):              # no cutoff -> no solution exists
             break
-    return make_result("IDS", False, [], graph, all_expanded)
+    return make_result("IDS", False, [], graph, all_expanded,
+                       {"iterations": iterations})
 
 
 # -----------------------------------------------------------------------------
@@ -307,10 +311,14 @@ def cheapest_cost_reference(graph, start, goal):
 
 def print_result(res):
     print(f"\n[{res['algorithm']}]")
-    print(f"  Expansion order ({res['n_expanded']} states): "
-          f"{' -> '.join(res['expanded'])}" if res["n_expanded"] <= 40 else
-          f"  Expanded {res['n_expanded']} states (first 15: "
-          f"{' -> '.join(res['expanded'][:15])} ...)")
+    if "iterations" in res:                    # IDS: show every iteration in full
+        print(f"  Expanded {res['n_expanded']} states in total "
+              f"(repeated visits are counted):")
+        for limit, states in res["iterations"]:
+            print(f"    limit {limit}: {' -> '.join(states)}")
+    else:                                      # BFS / DFS: one expansion order
+        print(f"  Expansion order ({res['n_expanded']} states): "
+              f"{' -> '.join(res['expanded'])}")
     if res["found"]:
         print(f"  Solution path : {' -> '.join(res['path'])}")
         print(f"  Moves (hops)  : {res['hops']}")
@@ -419,7 +427,7 @@ def make_figures(outdir="."):
 # =============================================================================
 
 if __name__ == "__main__":
-    print("INTELLIGENT CAMPUS NAVIGATION AGENT - PTU Khadoorie")
+    print("INTELLIGENT CAMPUS NAVIGATION AGENT - PTU Kadoorie")
     print(f"State space: {len(CAMPUS)} locations, {len(EDGES)} two-way roads")
 
     # Detailed step-by-step trace for the first scenario (shows the search process)
