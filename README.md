@@ -7,7 +7,7 @@
 | 🌐 **Live website** | https://eng-nadeenshadeed.github.io/ptu-campus-navigator/ |
 | 💻 **Source code** | https://github.com/Eng-NadeenShadeed/ptu-campus-navigator |
 | 📄 **Project report (PDF)** | [`Project_Report.pdf`](Project_Report.pdf) |
-| 👩‍🎓 **Student** | Nadeen Monther Shadeed – ID 202312411 |
+| 👩‍🎓 **Student** | Nadeen Monther Shadeed  |
  
 
  
