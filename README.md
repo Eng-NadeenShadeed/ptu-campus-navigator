@@ -93,7 +93,3 @@ python campus_agent.py --plot   # also saves figures (needs matplotlib)
  
 - Distances are **estimates read from the campus map picture**, not surveyed measurements.
 - The model is static: closed roads, crowds, stairs and accessibility are not modelled.
-## ملخص بالعربي
- 
-مشروع فردي لمساق الذكاء الاصطناعي: وكيل ذكي للتنقل بين مباني جامعة فلسطين التقنية – خضوري. يحوّل الخريطة الرسمية إلى غراف (26 مكاناً و37 طريقاً) ويبحث عن المسار بخوارزميات البحث غير المستنير **BFS** و**DFS** و**IDS**. الموقع يعرض البحث خطوة بخطوة على الخريطة بالعربية والإنجليزية، والبرنامج الأساسي بلغة بايثون في `campus_agent.py`. المسافات تقديرية مقروءة من الخريطة.
- 
