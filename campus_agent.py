@@ -41,7 +41,7 @@ DESCRIPTIONS = {
     "South_Gate":      "South Gate (University southern entrance)",
     "Main_Gate":       "Main Gate (University main entrance)",
     "NW_Roundabout":   "North-west roundabout",
-    "Khadoorie_Rbt":   "Khadoorie roundabout (south-west)",
+    "Kadoorie_Rbt":   "Kadoorie roundabout (south-west)",
     "J_South":         "Road junction near building D (winding road starts)",
     "J_NE":            "Road junction near the stadium (north-east)",
     "J_Mid":           "Road junction near building E / mosque",
@@ -91,11 +91,11 @@ EDGES = [
     ("J_SE", "Main_Gate", 70),
     ("Main_Gate", "L_Graduate", 150),
     ("Main_Gate", "Parking_Student", 90),
-    ("Main_Gate", "Khadoorie_Rbt", 320),
-    ("Khadoorie_Rbt", "L_Graduate", 170),
-    ("Khadoorie_Rbt", "Parking_Student", 90),
+    ("Main_Gate", "Kadoorie_Rbt", 320),
+    ("Kadoorie_Rbt", "L_Graduate", 170),
+    ("Kadoorie_Rbt", "Parking_Student", 90),
     # western road
-    ("Khadoorie_Rbt", "J_West", 230),
+    ("Kadoorie_Rbt", "J_West", 230),
     ("J_West", "NW_Roundabout", 240),
     ("J_West", "B_OldEng", 120),
     ("J_West", "J_Mid", 210),            # middle horizontal road
@@ -119,7 +119,7 @@ POSITIONS = {
     "D_Registration": (320, 480), "J_NE": (500, 530), "Stadium": (610, 570),
     "G_Library": (560, 490), "H_NewEng": (610, 380), "S_Culture": (730, 485),
     "Parking_East": (640, 310), "C_Sports": (610, 180), "J_East": (520, 280),
-    "J_SE": (520, 75), "Main_Gate": (450, 60), "Khadoorie_Rbt": (145, 70),
+    "J_SE": (520, 75), "Main_Gate": (450, 60), "Kadoorie_Rbt": (145, 70),
     "Parking_Student": (330, 20), "L_Graduate": (290, 155), "E_Sciences": (435, 235),
     "J_Mid": (345, 305), "Mosque": (225, 230), "A_Main": (430, 370),
     "B_OldEng": (255, 360), "J_West": (140, 295), "F_ContEd": (190, 350), "Bank": (475, 485),
@@ -394,7 +394,7 @@ def draw_graph(path=None, title="Campus state-space graph", filename="campus_gra
             ax.plot([x1, x2], [y1, y2], color="#d62728", lw=4, zorder=3)
     # nodes
     for node, (x, y) in POSITIONS.items():
-        is_junction = node.startswith(("J_", "NW_", "Khadoorie")) or node.endswith("Gate")
+        is_junction = node.startswith(("J_", "NW_", "Kadoorie")) or node.endswith("Gate")
         color = "#9ecae1" if is_junction else "#fdd49e"
         if node == start:
             color = "#74c476"
